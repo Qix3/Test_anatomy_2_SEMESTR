@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Анатомия | обновлённый тест</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="site-header">
+    <div class="logo"><span class="logo-pulse"></span> ANATOMY<span style="color:var(--accent2);">PRO</span></div>
+    <div class="nav">
+        <a id="historyBtn">📜 История</a>
+    </div>
+</div>
+
+<div class="container" id="appRoot">
+    <div id="startScreen" class="quiz-card" style="text-align:center;">
+        <h2 style="margin-bottom:16px;">🧠 Анатомия человека 🫀</h2>
+        <p style="margin-bottom:28px;">25 вопросов по анатомии. На каждый — 30 секунд. Ошибайтесь, учитесь, повторяйте!</p>
+        <button class="btn btn-primary" id="startTestBtn">🔬 Начать тест</button>
+    </div>
+
+    <div id="quizScreen" style="display:none;">
+        <div class="timer-area">
+            <div class="timer-ring" id="timerRing">
+                <svg width="70" height="70" viewBox="0 0 70 70">
+                    <circle class="track" cx="35" cy="35" r="30" stroke-width="3" fill="none"/>
+                    <circle class="fill" cx="35" cy="35" r="30" stroke-width="3" fill="none" stroke-dasharray="188.5" stroke-dashoffset="0" />
+                </svg>
+                <div class="timer-num" id="timerSeconds">30</div>
+            </div>
+        </div>
+        <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
+        <div class="quiz-card" id="questionCard">
+            <div class="question-number" id="qNum">ВОПРОС 1/25</div>
+            <div class="question-text" id="qText"></div>
+            <div class="answers-list" id="answersContainer"></div>
+        </div>
+    </div>
+
+    <div id="resultScreen" style="display:none;" class="quiz-card result-screen"></div>
+</div>
+
+<div class="footer-author">tg.LSD_616</div>
+
+<button id="floatingExitBtn" class="floating-exit" style="display:none;">✖</button>
+
+<div id="exitModal" class="modal">
+    <div class="modal-content">
+        <h3>⚠️ Прервать сессию?</h3>
+        <p style="margin:16px 0;">Весь прогресс текущего теста будет утерян.</p>
+        <div style="display:flex; gap:12px; justify-content:center;">
+            <button class="btn" id="cancelExitBtn">Отмена</button>
+            <button class="btn btn-primary" id="confirmExitBtn">Выйти</button>
+        </div>
+    </div>
+</div>
+
+<div id="historyModal" class="modal">
+    <div class="modal-content">
+        <h3>📋 История тестов</h3>
+        <div id="historyList" class="history-list">Загрузка...</div>
+        <button class="btn" id="closeHistoryBtn" style="margin-top:20px;">Закрыть</button>
+    </div>
+</div>
+
+<div id="errorsModal" class="modal">
+    <div class="modal-content" style="max-width: 700px; width: 95%;">
+        <h3>❌ Разбор ошибок</h3>
+        <div id="errorsList" class="errors-list" style="max-height: 500px; overflow-y: auto; margin: 20px 0; text-align: left;"></div>
+        <button class="btn btn-primary" id="closeErrorsBtn">Закрыть</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
